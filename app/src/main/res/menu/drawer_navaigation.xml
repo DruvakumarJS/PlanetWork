@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/attendence"
+        android:icon="@drawable/ic_calend"
+        android:title="Attendence" />
+
+
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/ic_activity"
+        android:title="Reports" />
+
+
+    <item
+        android:id="@+id/leaves"
+        android:icon="@drawable/ic_setting"
+        android:title="Leave" />
+
+    <item
+        android:id="@+id/task"
+        android:icon="@drawable/ic_work"
+        android:title="Task" />
+
+   <!-- <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_upload"
+        android:title="LOGOUT" />-->
+
+
+</menu>

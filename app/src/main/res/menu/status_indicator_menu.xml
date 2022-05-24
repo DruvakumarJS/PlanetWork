@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/green"
+        android:enabled="true"
+        android:title="" />
+
+    <item
+        android:id="@+id/orange"
+        android:icon="@drawable/ic_group_679__1_"
+        android:enabled="true"
+        android:title="" />
+
+    <item
+        android:id="@+id/red"
+        android:enabled="true"
+        android:icon="@drawable/ic_earnings"
+        android:title="" />
+
+</menu>

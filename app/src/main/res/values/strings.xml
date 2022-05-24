@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">PlanetWork</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+    <string name="GPSAlertDialogTitle">GPSAlertDialogTitle</string>
+    <string name="GPSAlertDialogMessage">GPSAlertDialogMessage</string>
+    <string name="action_settings">action_settings</string>
+    <string name="cancel">cancel</string>
+    <string name="to_date">To Date</string>
+    <string name="from_date">From Date</string>
+    <string name="enable_location">Enable Your Location</string>
+    <string name="you_ll_need_to_enable_your_location_n_in_order_to_use_binder">Choose your location to start find the \n request around you</string>
+    <string name="allow_location">Enable Location</string>
+    <string name="location_heading">This app collects location data only to works correctly if it can access your location "all the time"</string>
+    <string name="location_heading_sub">This app collects location data to enable the tracking of the parcel,Only when you are online. Your Location data will not be shared with any third parties.</string>
+    <string name="allow">Allow</string>
+
+    <string name="location_heading_denied">This app works correclty if it can access your location "all the time"</string>
+    <string name="location_heading_denied_sub">Go to setting and follow these steps</string>
+    <string name="location_heading_denied_step_1">1. Tap into <font color='#000000'> permission</font></string>
+    <string name="location_heading_denied_step_2">2. Tap into <font color='#000000'> Location </font></string>
+    <string name="location_heading_denied_step_3">3. Select Allow <font color='#000000'> all the time </font></string>
+    <string name="title_activity_offline_location_capture">OfflineLocationCaptureActivity</string>
+    <string name="default_notification_channel_id">1001</string>
+    <string name="msg_token_fmt">"Firebase token is : "</string>
+    <string name="channel_name">ot_task</string>
+    <string name="channel_description">ot_task_notification_channel</string>
+    <string name="logout">You are loggedout of PlanetWork</string>
+    <string name="location_disabled">Your location service is disabled , So, your are logged out of your work</string>
+    <string name="companyinfo">Netiapps , HRBR layout , Kalyananagar, Bangalore \nwebsite:www.planetwork.in \ncontact:planetwork@info.in</string>
+    <string name="title_activity_show_maps">ShowMapsActivity</string>
+
+
+</resources>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!--
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:elevation="10dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/charcoal"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_group_3"
+                tools:ignore="VectorDrawableCompat" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:gravity="center|right"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/proximanovabold"
+                    android:textColor="@color/menu_text_one"
+                    android:text="Trip List"/>
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ic_person"/>
+
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+-->
+
+    <include
+        android:id="@+id/header_layout"
+        layout="@layout/back_arrow_with_header_layout" />
+
+
+   <!-- <TextView
+        android:id="@+id/avleLeave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_layout"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:fontFamily="@font/proximanovabold"
+        android:gravity="left|center"
+        android:padding="10dp"
+        android:text="Report History"
+        android:textColor="#070707"
+        android:textSize="14dp" />-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/header_layout"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    android:id="@+id/rlfilter">
+
+    <TextView
+        android:id="@+id/avleLeave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:background="@color/white"
+        android:fontFamily="@font/proximanovabold"
+        android:gravity="left|center"
+        android:padding="10dp"
+        android:text="Travel History"
+        android:textColor="#070707"
+        android:textSize="14dp" />
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentEnd="true"
+       android:id="@+id/filtercard"
+       card_view:cardUseCompatPadding="true"
+       card_view:cardCornerRadius="10dp"
+
+
+       android:layout_marginRight="10dp"
+       >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/tvfilter"
+           android:text="Today"
+           android:drawablePadding="5dp"
+           android:gravity="center"
+           android:padding="5dp"
+           android:textColor="@color/black"
+
+           android:drawableRight="@drawable/ic_filter"
+           />
+
+   </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlfilter">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlfilter"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="10dp"
+            android:overScrollMode="never"
+            android:visibility="gone">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/ivnodatafound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlfilter"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        card_view:lottie_autoPlay="true"
+        card_view:lottie_loop="true"
+        card_view:lottie_rawRes="@raw/googlemapsearch"
+        card_view:lottie_repeatMode="restart" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlfilter"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_repeatMode="restart" />
+
+</RelativeLayout>

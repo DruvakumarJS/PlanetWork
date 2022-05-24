@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="levelArray">
+        <item>start</item>
+        <item>destination</item>
+        <item>work</item>
+        <item>hold</item>
+        <item>done</item>
+    </string-array>
+</resources>

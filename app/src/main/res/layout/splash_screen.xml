@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_group_726"/>
+
+        <TextView
+            android:id="@+id/tv_planetwork"
+            style="@style/viewParent.headerText.NoMode"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/proximanovaregular"
+            android:layout_gravity="center"
+            android:text="PlanetWork"
+            android:textColor="@color/blue"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/viewParent.headerText.NoMode"
+            android:layout_below="@+id/tv_planetwork"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/proximanovabold"
+            android:text="Freedom to \nWork from \nanywhere"
+            android:textSize="39dp"
+            android:layout_gravity="center"
+            android:visibility="visible" />
+
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/cirGetStartedButton"
+            android:layout_marginTop="30dp"
+
+            android:text="GET STARTED"
+            android:layout_gravity="center"
+            style="@style/loginButton"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="308dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-250dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="30dp"
+        android:rotation="45"
+        android:src="@drawable/rectangle"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/tvdeviceID"
+        style="@style/viewParent.headerText.NoMode"
+        android:layout_above="@+id/tvversion"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/proximanovaregular"
+        android:text="DeviceId/IMEI :"
+        android:textColor="@color/darkTextColor"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tvversion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/cornor_radius"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="version "
+        android:textColor="@color/black" />
+
+</RelativeLayout>

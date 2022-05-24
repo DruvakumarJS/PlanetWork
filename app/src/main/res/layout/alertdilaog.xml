@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    card_view:cardUseCompatPadding="true"
+    android:layout_margin="20dp"
+    android:background="@drawable/dialogue_bg"
+    card_view:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/borderpopup"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/vDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/proximanovaregular"
+            android:gravity="left|center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Work Status"
+            android:textColor="#10275A"
+            android:textSize="22sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiostatus">
+
+            <RadioButton
+                android:id="@+id/rdPening"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/proximanovaregular"
+                android:text="Pending"
+                android:textColor="#10275A"
+                android:textSize="16dp" />
+
+            <RadioButton
+                android:id="@+id/rdWorkinProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:checked="false"
+                android:fontFamily="@font/proximanovaregular"
+                android:text=" Work in Progress"
+                android:textColor="#10275A"
+                android:textSize="16dp" />
+
+            <RadioButton
+                android:id="@+id/rdWorkOnHold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:checked="false"
+                android:fontFamily="@font/proximanovaregular"
+
+                android:text="Work On Hold"
+                android:textColor="#10275A"
+                android:textSize="16dp" />
+
+            <RadioButton
+                android:id="@+id/rdCompleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:checked="false"
+                android:fontFamily="@font/proximanovaregular"
+
+                android:text="Completed"
+                android:textColor="#10275A"
+                android:textSize="16dp" />
+
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:id="@+id/TvCancel"
+                android:layout_margin="10dp"
+                android:textColor="@color/blue"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+
+                android:background="@drawable/border_blue"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done "
+                android:id="@+id/submitButton"
+                android:backgroundTint="@color/blue"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/border_blue"/>
+
+          <!--  <TextView
+                android:id="@+id/TvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_blue"
+                android:fontFamily="@font/proximanovaregular"
+
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+
+                android:text="Cancel"
+                android:textColor="#0696F7"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_blue"
+                android:backgroundTint="#0696F7"
+                android:fontFamily="@font/proximanovaregular"
+
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="ok"
+                android:textColor="#ffffff"
+                android:textSize="14dp" />-->
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

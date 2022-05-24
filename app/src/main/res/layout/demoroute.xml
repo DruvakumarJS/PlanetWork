@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@android:color/white"
+   >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Trip Analysis"
+                android:fontFamily="@font/proximanovaregular"
+                android:textColor="@color/green"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_photoIdVerification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center|left">
+
+                        <LinearLayout
+                            android:id="@+id/ll_photoIdVerificationStatus"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_group_734">
+
+                            <ImageView
+                                android:id="@+id/iv_photoIdVerificationStatus"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="5dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvstartaddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Start Address"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:textColor="@color/green"
+                            android:textSize="20sp" />
+
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_below="@+id/ll_photoIdVerification"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="12dp"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:background="@color/green"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/ll_photoIdVerificationContent"
+                                android:layout_width="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:visibility="visible"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginRight="50dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:layout_height="wrap_content">
+
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/llinerlayout"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="left"
+                                        android:id="@+id/tvdistance"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:padding="2dp"
+                                        android:fontFamily="@font/proximanovaregular"
+                                        android:text="Distance"
+                                        android:textColor="#070707"
+                                        android:textSize="14dp"
+                                        />
+
+
+
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_addressVerification"
+                        android:layout_width="match_parent"
+                        android:gravity="center|left"
+                        android:layout_alignParentTop="true"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/ll_addressVerificationStatus"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_group_734">
+
+                            <ImageView
+                                android:id="@+id/iv_addressVerificationStatus"
+                                android:layout_width="match_parent"
+                                android:padding="5dp"
+                                android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Idle Location (0)"
+                            android:textSize="20sp"
+                            android:id="@+id/tvllocation"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:textColor="@color/green"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_below="@+id/ll_addressVerification"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="12dp"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:background="@color/green"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/ll_addressVerificationContent"
+                                android:layout_width="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="left"
+                                android:visibility="visible"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginRight="50dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:padding="2dp"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:text="Distance"
+                                    android:textColor="#070707"
+                                    android:textSize="14dp"
+                                    />
+
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_videoDisclaimerVerification"
+                        android:layout_width="match_parent"
+                        android:gravity="center|left"
+                        android:layout_alignParentTop="true"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/ll_videoDisclaimerVerificationStatus"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_group_734">
+
+                            <ImageView
+                                android:id="@+id/iv_videoDisclaimerVerificationStatus"
+                                android:layout_width="match_parent"
+                                android:padding="5dp"
+                                android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="To Address"
+                            android:textSize="20sp"
+                            android:id="@+id/tvtoaddress"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:textColor="@color/green"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_below="@+id/ll_videoDisclaimerVerification"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="12dp"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/ll_videoDisclaimerContent"
+                                android:layout_width="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginRight="50dp"
+                                android:visibility="gone"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:text="Record a 45 sec disclaimer \nand upload"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:textColor="@color/green"
+                                    android:gravity="center"
+                                    android:layout_height="wrap_content" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_recordVideoDisclaimer"
+                                    android:layout_width="match_parent"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="Record Video"
+                                    android:textSize="18sp"
+                                    android:layout_marginLeft="50dp"
+                                    android:layout_marginRight="50dp"
+                                    android:layout_marginTop="20dp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:textColor="@android:color/white"
+                                    android:background="@color/colorAccent"
+                                    android:layout_height="wrap_content" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_finish"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:text="FINISH"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:textColor="@android:color/white"
+                    android:background="@color/colorAccent"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

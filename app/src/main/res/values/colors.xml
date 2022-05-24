@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#0A0A0A</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="darkTextColor">#0A0A0A</color>
+    <color name="blue">
+        #0085FF
+    </color>
+    <color name="naviagtionbarcolor">#023E50</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="rel">#0087FF</color>
+
+    <color name="colorPrimary">#5DEDDF</color>
+    <color name="colorPrimaryDark">#04BDAB</color>
+    <color name="colorAccent">#03DAC5</color>
+
+
+    <color name="main">#0FC7BC</color>
+    <color name="colorYellow">#ffb208</color>
+    <color name="contentTextColor">#020000</color>
+    <color name="primaryTextColor">#11CFC5</color>
+    <color name="login_background_color">#122B8E</color>
+
+    <color name="menu_text_one">#0C1A17</color>
+    <color name="notification_text">#E0EEEC</color>
+    <color name="toolbar_view">#EDEDED</color>
+    <color name="charcoal">#313736</color>
+    <color name="light_gray_color">#919191</color>
+    <color name="proswipebtn_red">#F15824</color>
+
+    <color name="proswipebtn_disabled_grey">#939393</color>
+    <color name="proswipebtn_planet_work">#0099FF</color>
+    <color name="proswipebtn_translucent_white">#336A6666</color>
+
+    <color name="tintgreen">#DFFFBC</color>
+    <color name="approvegrrenn">#7ED321</color>
+    <color name="onholdyellow">#FF9800</color>
+    <color name="tintred">
+        #D8C906</color>
+    <color name="rejectred">#FF8299</color>
+    <color name="pedingyelow">
+        #D8C906</color>
+    <color name="pendingpink">#E9E3A2C4</color>
+    <color name="recolor">#FF8299</color>
+    <color name="yellowlihh">#D8C906</color>
+
+    <color name="pending">#FF8299</color>
+    <color name="inprogress">#535134</color>
+    <color name="onhold">#9C27B0</color>
+    <color name="completed">#7ED321</color>
+
+
+
+
+
+
+
+    <color name="newColorBlack">#000000</color>
+    <color name="newColorBackground">#ffffff</color>
+
+    <color name="text_color_gray">#787878</color>
+    <color name="newColorLightHint">#C2C2C2</color>
+    <color name="newColorDarkHint">#787878</color>
+    <color name="tab_color">#EFEFF1</color>
+    <color name="App_color">#F54D6E</color>
+    <color name="newColorWhite">#ffffff</color>
+    <color name="gray">#A8A8A8</color>
+    <color name="green">#00A652</color>
+    <color name="gray0">#EFEFF1</color>
+    <color name="gray_line">#EFEFF1</color>
+    <color name="gray1">#DFDFE1</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="red">#F54D6E</color>
+    <color name="color_card_history">#e36f00</color>
+    <color name="bg_inner_recycler_screen">#ffffff</color>
+    <color name="newColorGooglebg">#db4437</color>
+    <color name="newColorFacebookbg">#3b5998</color>
+    <color name="orange">#f17501</color>
+    <color name="megenta">#2cb0bd</color>
+    <color name="selector">#E0F0FF</color>
+    <color name="status">#0C43CD</color>
+</resources>

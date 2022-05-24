@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:enabled="true"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_inbox"
+        android:icon="@drawable/ic_group_679__1_"
+        android:enabled="true"
+        android:title="" />
+    <item
+        android:id="@+id/placeholder"
+        android:title="" />
+
+
+    <item
+        android:id="@+id/navigation_earnings"
+        android:enabled="true"
+        android:icon="@drawable/ic_earnings"
+        android:title="" />
+    <item
+        android:id="@+id/navigationearnings"
+        android:enabled="true"
+        android:icon="@drawable/ic_earnings"
+        android:title="" />
+
+</menu>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "933785405329",
+    "project_id": "planetwork-91893",
+    "storage_bucket": "planetwork-91893.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933785405329:android:b668cdee6326424e433c30",
+        "android_client_info": {
+          "package_name": "com.netiapps.planetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933785405329-86nok0dgfhflpn2tgppn2c7djb4stuqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvyjBdQ-ldmvotEenwGStLsNUVQsOd6LY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933785405329-86nok0dgfhflpn2tgppn2c7djb4stuqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

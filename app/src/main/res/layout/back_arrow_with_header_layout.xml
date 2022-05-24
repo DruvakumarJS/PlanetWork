@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:id="@+id/cardimage"
+        app:cardElevation="5dp"
+        android:layout_margin="2dp"
+       >
+
+        <ImageView
+            android:id="@+id/ivback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_button_back" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_toLeftOf="@+id/ivcircleimg"
+        android:fontFamily="@font/proximanovabold"
+        android:gravity="center"
+        android:text="PlanetWork"
+        android:textColor="@color/menu_text_one"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/ivcircleimg"
+        android:visibility="gone"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentEnd="true"
+        />
+
+
+
+</RelativeLayout>

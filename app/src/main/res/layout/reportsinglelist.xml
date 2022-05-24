@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="#B7009688"
+    android:layout_margin="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+       
+        android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+
+                android:id="@+id/llinerlayout"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:padding="2dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:background="@drawable/shape_rounded"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="left|center"
+                        android:padding="5dp"
+                        android:text="29-09-2021"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tvsrno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       android:layout_centerHorizontal="true"
+                        android:layout_marginRight="3dp"
+                        android:background="@drawable/cornor_radius"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="left|center"
+                        android:padding="5dp"
+                        android:text="SR001"
+                        android:textColor="@color/login_background_color"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/tvdistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/cornor_radius"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="12km"
+                        android:textColor="#040D5E"
+                        android:textSize="14dp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="left"
+                        android:padding="2dp"
+                        android:text="17:22:35"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tvendTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@+id/tvTime"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="left"
+                        android:padding="2dp"
+                        android:text="17:22:35"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="From :"
+                        android:textColor="#F44336"
+                        android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:id="@+id/tvaddress"
+                    android:layout_marginLeft="5dp"
+                    android:padding="2dp"
+                    android:maxLines="1"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="Address"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="To :"
+                        android:textColor="#F44336"
+                        android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:id="@+id/tvtoaddress"
+                    android:layout_marginLeft="5dp"
+                    android:ellipsize="end"
+                    android:padding="2dp"
+                    android:maxLines="1"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="Address"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

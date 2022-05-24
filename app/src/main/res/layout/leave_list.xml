@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/avleLeave"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:cardElevation="3dp"
+            card_view:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8F8F8"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="#F8F8F8"
+                        android:orientation="horizontal"
+
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tvNameDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proximanovabold"
+                            android:gravity="left|center"
+                            android:padding="5dp"
+                            android:text="Medical Leaves"
+                            android:textColor="#070707"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvstatustask"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/border"
+                            android:fontFamily="@font/proximanovabold"
+                            android:gravity="center"
+                            android:backgroundTint="#7ED321"
+                            android:padding="5dp"
+                            android:text="Approved"
+                            android:textSize="12dp" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#F8F8F8"
+                        android:fontFamily="@font/proximanovabold"
+                        android:gravity="left"
+                        android:padding="2dp"
+                        android:text="07 Sept 2021 - 09 Sept 2021"
+
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitlecompnay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="5dp"
+                        android:background="#F8F8F8"
+                        android:fontFamily="@font/proximanovabold"
+                        android:gravity="left"
+                        android:padding="2dp"
+                        android:text="Reason - Need to visit temple for festival"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    card_view:cardCornerRadius="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:background="@color/white"
+                        android:padding="2dp"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvitldayscompnay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proximanovaboldit"
+                            android:layout_gravity="center"
+                            android:text="02"
+                            android:textColor="#007FF6"
+                            android:textSize="25dp"
+                            />
+                        <TextView
+                            android:id="@+id/ticompnay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/proximanovaboldit"
+                            android:layout_gravity="center"
+                            android:text="Days"
+                            android:padding="5dp"
+                            android:textColor="#007FF6"
+                            android:textSize="15dp"
+                            />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

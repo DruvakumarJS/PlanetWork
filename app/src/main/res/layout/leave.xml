@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!--
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:elevation="10dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/charcoal"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_group_3"
+                tools:ignore="VectorDrawableCompat" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:gravity="center|right"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/proximanovabold"
+                    android:textColor="@color/menu_text_one"
+                    android:text="Leave"/>
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_person"/>
+
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+-->
+
+    <include
+        android:id="@+id/header_layout"
+        layout="@layout/back_arrow_with_header_layout" />
+
+
+    <TextView
+        android:id="@+id/avbleLeave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_layout"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:fontFamily="@font/proximanovabold"
+        android:gravity="left|center"
+        android:padding="10dp"
+        android:text="Available Leaves"
+        android:textColor="
+#070707"
+        android:textSize="14dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardleavecount"
+        card_view:cardCornerRadius="10dp"
+        android:layout_margin="20dp"
+        card_view:cardBackgroundColor="#F8F8F8"
+        android:layout_below="@+id/avbleLeave">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/leaveData"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+              android:layout_weight="1"
+                android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tvPelLeave"
+                android:fontFamily="@font/proximanovabold"
+                android:padding="10dp"
+                android:text="0"
+                android:textColor="#007FF6"
+                android:textSize="35dp"
+                />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+
+                    android:fontFamily="@font/proximanovabold"
+                    android:padding="10dp"
+                    android:text="Privilege leaves"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#B8B8B8"
+                android:layout_marginBottom="10dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/tvMedleaves"
+                    android:fontFamily="@font/proximanovabold"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textColor="#007FF6"
+                    android:textSize="35dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+
+                    android:fontFamily="@font/proximanovabold"
+                    android:padding="10dp"
+                    android:text="Medical leaves"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/avleLeave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardleavecount"
+        android:layout_marginLeft="15dp"
+        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/proximanovabold"
+        android:gravity="left|center"
+        android:padding="10dp"
+        android:text="Leave History"
+        android:textColor="#070707"
+        android:textSize="14dp" />
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cirLeaveButton"
+        android:layout_below="@+id/avleLeave"
+        android:visibility="visible"
+        android:overScrollMode="never">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+        android:id="@+id/cirLeaveButton"
+        style="@style/loginButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/proximanovaboldit"
+        android:text="Apply for Leave"
+        app:initialCornerAngle="27dp"
+        app:spinning_bar_color="#FFF"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
+
+
+
+</RelativeLayout>

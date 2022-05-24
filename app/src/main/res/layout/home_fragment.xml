@@ -1,0 +1,144 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_goneMarginEnd="10dp">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:elevation="0dp"
+        android:background="@color/transparent"
+       >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collpase_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="false">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="59dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/proximanovabold"
+                        android:text="Hi, Satish"
+                        android:textColor="#111111"
+                        android:textSize="20dp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/title"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="fill"
+                        android:layout_marginLeft="59dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:enabled="true"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:text="Let’s make this day productive"
+                        android:textAllCaps="false"
+                        android:textColor="#111111"
+                        android:textSize="12dp"
+                        android:visibility="visible" />
+
+                    <com.netiapps.planetwork.swipe.ProSwipeButton
+                        android:id="@+id/proswipebutton_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/name"
+                        android:layout_marginStart="29dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="29dp"
+                        android:layout_marginBottom="8dp"
+                        app:btn_text="Place Order" />
+
+                    <TextView
+                        android:id="@+id/latettask"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/proswipebutton_main"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/proximanovabold"
+                        android:gravity="center|start"
+                        android:text="Latest task"
+                        android:textColor="#353535"
+                        android:textSize="20dp" />
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleMarginTop="15dp"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipecontainer"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/latettask">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:overScrollMode="never">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </RelativeLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+   <!-- <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
