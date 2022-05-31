@@ -25,6 +25,7 @@ import com.netiapps.planetwork.utils.ConnectionDetector;
 import com.netiapps.planetwork.utils.Constants;
 import com.netiapps.planetwork.utils.ErrorUtil;
 import com.netiapps.planetwork.utils.Keys;
+import com.netiapps.planetwork.utils.LocalHelper;
 import com.netiapps.planetwork.utils.PlanetWorkVolleySingleton;
 
 import org.json.JSONArray;
@@ -46,6 +47,9 @@ public class  SendLocationToServerBroadcastReceiver extends BroadcastReceiver {
     Context mContext ;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor mEditor;
+    private int finalsize=250;
+    private  int listsize=0;
+    List<DbModelSendingData> DBlocationData=new ArrayList<>();
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -60,10 +64,12 @@ public class  SendLocationToServerBroadcastReceiver extends BroadcastReceiver {
                 .getSystemService(Context.VIBRATOR_SERVICE);
        // vibrator.vibrate(2000);
 
-        List<DbModelSendingData> locationData = getAllData();
+       // List<DbModelSendingData> locationData = getAllData();
         List<UserLoginData> userlogindata = getuserlogindata();
+       sendDataToServer();
 
-        if(locationData.size() > 0){
+
+       /* if(locationData.size() > 0){
 
             if (new ConnectionDetector(mContext).isConnectingToInternet()) {
                 if(isDebug){
@@ -80,13 +86,13 @@ public class  SendLocationToServerBroadcastReceiver extends BroadcastReceiver {
             if(isDebug){
                 Log.d(Constants.LOG,"No value in DB");
             }
-        }
+        }*/
 
         if(userlogindata.size() > 0){
 
             if (new ConnectionDetector(mContext).isConnectingToInternet()) {
                 if(isDebug){
-                    Log.d(Constants.LOG,"LocalDBSyncService : calledServer Sync UserData");
+                    Log.d(Constants.LOG,"LocaluserlogindataDBSyncService : calledServer Sync UserData");
                 }
                 callServerForSyncUserloginData(userlogindata);
             }else{
@@ -97,13 +103,21 @@ public class  SendLocationToServerBroadcastReceiver extends BroadcastReceiver {
             }
         }else{
             if(isDebug){
-                Log.d(Constants.LOG,"No value in DB");
+                Log.d(Constants.LOG,"No value in userloginDB");
             }
         }
 
     }
 
-
+    private void sendDataToServer() {
+       // finalsize=100;
+        DBlocationData = getAllData();
+        if(DBlocationData.size()>0) {
+            if (new ConnectionDetector(mContext).isConnectingToInternet()) {
+                callServerForSyncUserData(DBlocationData);
+            }
+        }
+    }
 
     public List<DbModelSendingData> getAllData(){
 
@@ -130,22 +144,48 @@ public class  SendLocationToServerBroadcastReceiver extends BroadcastReceiver {
 
             try {
                 final JSONArray serviceJSONArray = new JSONArray();
+                listsize=locationData.size();
 
-                for(int i = 0; i < locationData.size(); i++) {
-                    JSONObject jsonObject = new JSONObject();
-                    DbModelSendingData dbModelSendingData = locationData.get(i);
-                    jsonObject.put("user_id",dbModelSendingData.getUserempId());
-                    jsonObject.put("date",dbModelSendingData.getDate());
-                    jsonObject.put("time",dbModelSendingData.getTime());
-                    jsonObject.put("latitude",dbModelSendingData.getLat());
-                    jsonObject.put("longitude",dbModelSendingData.getLng());
-                    jsonObject.put("job_id",dbModelSendingData.getProjectId());
-                    jsonObject.put("status",dbModelSendingData.getStatus());
-                    jsonObject.put("is_reached",dbModelSendingData.getIsreached());
+                if(listsize>0 && listsize>finalsize) {
 
-                    serviceJSONArray.put(jsonObject);
+                    for (int i = 0; i < finalsize; i++) {
+                        JSONObject jsonObject = new JSONObject();
+                        DbModelSendingData dbModelSendingData = locationData.get(i);
+                        jsonObject.put("user_id", dbModelSendingData.getUserempId());
+                        jsonObject.put("date", dbModelSendingData.getDate());
+                        jsonObject.put("time", dbModelSendingData.getTime());
+                        jsonObject.put("latitude", dbModelSendingData.getLat());
+                        jsonObject.put("longitude", dbModelSendingData.getLng());
+                        jsonObject.put("job_id", dbModelSendingData.getProjectId());
+                        jsonObject.put("status", dbModelSendingData.getStatus());
+                        jsonObject.put("is_reached", dbModelSendingData.getIsreached());
+
+                        serviceJSONArray.put(jsonObject);
+                    }
+                    jsonObjectHeader.put("data", serviceJSONArray);
                 }
-                jsonObjectHeader.put("data",serviceJSONArray);
+                else if(listsize>0 && listsize>=10) {
+
+                    for (int i = 0; i < listsize; i++) {
+                        JSONObject jsonObject = new JSONObject();
+                        DbModelSendingData dbModelSendingData = locationData.get(i);
+                        jsonObject.put("user_id", dbModelSendingData.getUserempId());
+                        jsonObject.put("date", dbModelSendingData.getDate());
+                        jsonObject.put("time", dbModelSendingData.getTime());
+                        jsonObject.put("latitude", dbModelSendingData.getLat());
+                        jsonObject.put("longitude", dbModelSendingData.getLng());
+                        jsonObject.put("job_id", dbModelSendingData.getProjectId());
+                        jsonObject.put("status", dbModelSendingData.getStatus());
+                        jsonObject.put("is_reached", dbModelSendingData.getIsreached());
+
+                        serviceJSONArray.put(jsonObject);
+                    }
+                    jsonObjectHeader.put("data", serviceJSONArray);
+                }
+                else{
+                    Log.d(Constants.LOG,"No value in DB");
+                    return;
+                }
 
                 if(isDebug){
                     Log.d(Constants.LOG, "LocalDBSyncService : JSON Input params : "+jsonObjectHeader);
@@ -162,11 +202,34 @@ public class  SendLocationToServerBroadcastReceiver extends BroadcastReceiver {
                     Log.d(Constants.LOG, response.toString());
                     try {
                         int status = response.getInt("status");
+                        DbModelSendingData dbModelSendingData;
                         if (status == 1) {
-                            DbModelSendingData dbModelSendingData = locationData.get(locationData.size() - 1);
+                            //DbModelSendingData dbModelSendingData = locationData.get(locationData.size() - 1);
+                            if(listsize>finalsize) {
+                                dbModelSendingData = locationData.get(finalsize - 1);
+                            }
+                            else {
+                                dbModelSendingData = locationData.get(locationData.size() - 1);
+                            }
 
                             AppDatabase db = AppDatabase.getDbInstance(mContext);
                             db.taskDao().removeAllSavedLocationData(dbModelSendingData.getId() + "");
+
+                            DBlocationData = getAllData();
+                            if(DBlocationData.size()>0) {
+                               /* if(DBlocationData.size()>finalsize)
+                                {
+                                    finalsize=100;
+                                }
+                                else {
+                                    finalsize=DBlocationData.size();
+                                }*/
+                                Log.d(Constants.LOG,"DB remianing data "+DBlocationData.size());
+                                callServerForSyncUserData(DBlocationData);
+                            }
+                            else{
+                                Log.d(Constants.LOG,"DB is empty ");
+                            }
 
                             String todayDate= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 

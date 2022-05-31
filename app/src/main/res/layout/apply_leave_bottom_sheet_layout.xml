@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
+    app:cardCornerRadius="20dp"
+    android:layout_marginBottom="-20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apply For Leave"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@color/blue"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/proximanovaregular"
+            android:gravity="center"
+            android:hint="Earned Leave"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:visibility="gone"
+            android:paddingBottom="8dp"
+            android:textColor="#0696F7"
+            android:textColorHint="#0696F7"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/radiogruop"
+            android:visibility="visible"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rdPening"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="Privilege Leaves"
+                android:textColor="#10275A"
+                android:textSize="16dp" />
+            <View
+                android:background="#B8B8B8"
+                android:layout_width="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="match_parent"/>
+
+            <RadioButton
+                android:id="@+id/rdMedicalLeave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanovaregular"
+                android:text=" Medical Leaves"
+                android:textColor="#10275A"
+                android:textSize="16dp" />
+
+
+        </RadioGroup>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvfromdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_blue"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center"
+                android:hint="From Date"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="8dp"
+                android:textColor="#0696F7"
+                android:textColorHint="#0696F7"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tv_toDate"
+                android:background="@drawable/border_blue"
+                android:fontFamily="@font/proximanovaregular"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColorHint="#0696F7"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:hint="To Date"
+                android:textColor="#0696F7"
+                android:textSize="14dp" />
+
+
+        </LinearLayout>
+
+
+        <EditText
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:fontFamily="@font/proximanovaregular"
+            android:textColor="@color/black"
+            android:textColorHint="#0696F7"
+            android:hint="Please Write a Note"
+            android:background="@drawable/border"
+            android:minLines="6"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:gravity="top|start"
+            android:maxLines="10"
+            android:textSize="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:id="@+id/edt_reason"
+            android:layout_marginLeft="10dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/TvCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_blue"
+                android:fontFamily="@font/proximanovaregular"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingRight="20dp"
+                android:text="Cancel"
+                android:textColor="#0696F7"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_blue"
+                android:backgroundTint="#0696F7"
+                android:fontFamily="@font/proximanovaregular"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Apply"
+                android:textColor="#ffffff"
+                android:textSize="14dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

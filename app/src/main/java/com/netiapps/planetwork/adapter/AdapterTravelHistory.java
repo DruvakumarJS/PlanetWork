@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,6 +67,8 @@ public class AdapterTravelHistory extends RecyclerView.Adapter<AdapterTravelHist
         holder.tvdistance.setText(reportModel.getDistance()+" km");
         holder.tvaddress.setText("From: "+reportModel.getFrom_address());
         holder.tvtoaddress.setText("To :"+reportModel.getTo_address());
+
+        setZoomInAnimation(holder.itemView);
 
 
 
@@ -166,5 +170,9 @@ public class AdapterTravelHistory extends RecyclerView.Adapter<AdapterTravelHist
             }
         };
         thread.start();
+    }
+    private void setZoomInAnimation(View view) {
+        Animation zoomIn = AnimationUtils.loadAnimation(context, R.anim.in_from_bottom);// animation file
+        view.startAnimation(zoomIn);
     }
 }

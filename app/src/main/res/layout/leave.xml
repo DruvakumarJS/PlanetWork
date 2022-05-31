@@ -91,8 +91,7 @@
         android:gravity="left|center"
         android:padding="10dp"
         android:text="Available Leaves"
-        android:textColor="
-#070707"
+        android:textColor="#070707"
         android:textSize="14dp" />
 
     <androidx.cardview.widget.CardView
@@ -100,7 +99,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/cardleavecount"
         card_view:cardCornerRadius="10dp"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         card_view:cardBackgroundColor="#F8F8F8"
         android:layout_below="@+id/avbleLeave">
 
@@ -210,16 +210,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardleavecount"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
         android:background="@color/white"
-        android:layout_marginTop="15dp"
         android:fontFamily="@font/proximanovabold"
         android:gravity="left|center"
         android:padding="10dp"
         android:text="Leave History"
         android:textColor="#070707"
         android:textSize="14dp" />
-
-
 
 
     <androidx.recyclerview.widget.RecyclerView

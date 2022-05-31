@@ -15,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -38,11 +41,13 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.netiapps.planetwork.model.Leave;
 import com.netiapps.planetwork.utils.AlertDialogShow;
 import com.netiapps.planetwork.utils.Constants;
 import com.netiapps.planetwork.utils.ErrorUtil;
 import com.netiapps.planetwork.utils.Keys;
+import com.netiapps.planetwork.utils.LocalHelper;
 import com.netiapps.planetwork.utils.PlanetWorkVolleySingleton;
 import com.squareup.picasso.Picasso;
 
@@ -50,9 +55,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +78,7 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String userId;
-    private String operationModeSelected;
+    private String operationModeSelected="CL";
     private static final String medicalLeave = "ML";
     private static final String previlageLeave = "CL";
     private RecyclerView recyclerView;
@@ -91,7 +98,6 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
     CardView cardimgBcak;
     TextView tvheader;
     CircleImageView cardivprofile;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +161,9 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
 
         switch (view.getId()) {
             case R.id.cirLeaveButton:
-                customDialg();
+               // customDialg();
+
+                ShowBottomSheet();
                 break;
 
             case R.id.cardimage:
@@ -165,13 +173,11 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void customDialg() {
-        final Dialog mDialog = new Dialog(LeaveActivity.this);
-        mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        mDialog.setContentView(R.layout.alertdialogleave);
-        mDialog.setCancelable(false);
-        mDialog.setCanceledOnTouchOutside(false);
-        mDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+    private void ShowBottomSheet() {
+
+        final BottomSheetDialog mDialog = new BottomSheetDialog(LeaveActivity.this,R.style.BottomSheetDialog );
+        mDialog.setContentView(R.layout.apply_leave_bottom_sheet_layout);
+        mDialog.setCancelable(true);
 
         final TextView tvFromdate = (TextView) mDialog.findViewById(R.id.tvfromdate);
         final TextView tvTodate = (TextView) mDialog.findViewById(R.id.tv_toDate);
@@ -182,12 +188,10 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
         final TextView tvupdate = (TextView) mDialog.findViewById(R.id.submitButton);
         final TextView tvCancel = (TextView) mDialog.findViewById(R.id.TvCancel);
 
-
         tvFrDate = tvFromdate;
         tvToDate = tvTodate;
         ediReason = edtReason;
         mDialogHeader = mDialog;
-
 
         tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,7 +202,29 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
         tvupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getApplyLeave();
+
+                String Textviewfromdate = tvFrDate.getText().toString().trim();
+                String TextviewToDate = tvToDate.getText().toString().trim();
+                String editres = ediReason.getText().toString().trim();
+
+                if (Textviewfromdate.isEmpty()) {
+                    AlertDialogShow.showSimpleAlert("", "Click on From-Date to select date ", getSupportFragmentManager());
+
+
+                }
+                else if (TextviewToDate.isEmpty()) {
+                    AlertDialogShow.showSimpleAlert("", "Click on To-Date to select date ", getSupportFragmentManager());
+
+                }
+                else if (editres.isEmpty()) {
+                    AlertDialogShow.showSimpleAlert("", "Please write the reason for leave..", getSupportFragmentManager());
+
+                }
+                else {
+                    getApplyLeave();
+                }
+
+
             }
         });
         tvFromdate.setOnClickListener(new View.OnClickListener() {
@@ -241,34 +267,17 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
             public void onClick(View view) {
                 boolean checked = ((RadioButton) view).isChecked();
                 if (checked) {
-                    rdMedicalLeave.setChecked(true);
+                    rdPendingLeave.setChecked(true);
                     operationModeSelected = "CL";
                 }
 
             }
         });
 
-        mRadioGroupSelection.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
 
-                RadioButton mRadioButtonSelected = (RadioButton) group.findViewById(checkedId);
-                String selected = mRadioButtonSelected.getText().toString();
-                if (!selected.equalsIgnoreCase("Privilege Leaves")) {
-                    operationModeSelected = medicalLeave;
-                } else {
-                    if ((selected.equalsIgnoreCase("CL"))) {
-                        operationModeSelected = previlageLeave;
-                    }
-                }
-
-            }
-        });
-        operationModeSelected = previlageLeave;
-
-        mDialogg = mDialog;
         mDialog.show();
     }
+
 
     public void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -308,21 +317,6 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
         String TextviewToDate = (String) tvToDate.getTag(R.string.to_date); //tvToDate.getText().toString().trim();
         String editres = ediReason.getText().toString().trim();
 
-        if (Textviewfromdate.isEmpty()) {
-            AlertDialogShow.showSimpleAlert("", "From Date cannot be empty", getSupportFragmentManager());
-            return;
-
-        }
-        if (TextviewToDate.isEmpty()) {
-            AlertDialogShow.showSimpleAlert("", "To Date Cannot be empty", getSupportFragmentManager());
-            return;
-        }
-        if (editres.isEmpty()) {
-            AlertDialogShow.showSimpleAlert("", "Please write the reason for leave..", getSupportFragmentManager());
-            return;
-        }
-
-
         final JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("user_id", userId);
@@ -350,12 +344,15 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
                     int status = response.getInt("status");
                     if (status == 1) {
                         String message = response.getString("message");
-                        showAlertOkAndClose(message);
+                       // showAlertOkAndClose(message);
+                        mDialogg.dismiss();
+                        LocalHelper.showNotification(LeaveActivity.this,"Leave Request","Your leave request has been sent to admin . Click here to know the status ");
                     } else {
-
-                    }
+                        showAlertOkAndClose("Error while requesting for leave ..Please try again later..");
+                          }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    showAlertOkAndClose("Error while requesting for leave ..Plase try again later..");
                 }
 
             }
@@ -570,9 +567,7 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
                 leave.setNo_of_days(categoryJSONObject.getString("no_of_days"));
 
                 myLeaveListt.add(leave);
-
             }
-
 
         } catch (Exception e) {
 
@@ -617,41 +612,67 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
         public void onBindViewHolder(ViewHolder holder, int position) {
             final Leave leavedata = itemList.get(position);
 
-            holder.tvTitle.setText(leavedata.getFrom_date() + "  -  " + leavedata.getTo_date());
+            String startdate=leavedata.getFrom_date();
+            String endDate=leavedata.getTo_date();
+            Date d1=null , d2=null;
 
-            holder.tvTitlecompnay.setText(leavedata.getReason());
+            SimpleDateFormat nameformat=new SimpleDateFormat("dd LLL yyyy");
+            SimpleDateFormat numberformat=new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                 d1=numberformat.parse(startdate);
+                 d2=numberformat.parse(endDate);
 
-            holder.tvitldayscompnay.setText(leavedata.getNo_of_days());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+           // holder.tvNameDate.setText(leavedata.getFrom_date() + "  -  " + leavedata.getTo_date());
+
+            holder.tvreason.setText(leavedata.getReason());
+
+            holder.tvdaysnumber.setText(leavedata.getNo_of_days());
+
+            if(leavedata.getNo_of_days().equalsIgnoreCase("1")){
+                holder.tvdays.setText("Day");
+                holder.tvNameDate.setText(nameformat.format(d1));
+            }
+            else {
+                holder.tvdays.setText("Days");
+                holder.tvNameDate.setText(nameformat.format(d1) + "  -  " + nameformat.format(d2));
+            }
 
             if (leavedata.getLeave_type().contains("CL")) {
-                holder.tvNameDate.setText("Privilege Leaves");
+                holder.tvTitle.setText("Privilege Leave");
             } else if (leavedata.getLeave_type().contains("ML")) {
-                holder.tvNameDate.setText("Medical Leaves");
+                holder.tvTitle.setText("Medical Leave");
             }
 
             switch (leavedata.getStatus()){
                 case "pending" :
                     holder.tvstatustask.setText("Pending");
-                    holder.tvstatustask.setBackgroundResource(R.drawable.border_button);
+                  //  holder.tvstatustask.setBackgroundResource(R.drawable.border_button);
                     holder.tvstatustask.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.yellowlihh)));
                     break;
                 case "rejected"  :
                     holder.tvstatustask.setText("Rejected");
-                    holder.tvstatustask.setBackgroundResource(R.drawable.complerejected);
+                  //  holder.tvstatustask.setBackgroundResource(R.drawable.complerejected);
                     holder.tvstatustask.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.recolor)));
                    // holder.tvstatustask.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.rejectred)));
                     break;
                 case "approved" :
                     holder.tvstatustask.setText("Approved");
-                    holder.tvstatustask.setBackgroundResource(R.drawable.completed_back);
+                   // holder.tvstatustask.setBackgroundResource(R.drawable.completed_back);
                     holder.tvstatustask.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.approvegrrenn)));
                     break;
                 case "modify-approved" :
                     holder.tvstatustask.setText("Modify/Approved");
-                    holder.tvstatustask.setBackgroundResource(R.drawable.completed_back);
+                   // holder.tvstatustask.setBackgroundResource(R.drawable.completed_back);
                     holder.tvstatustask.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.approvegrrenn)));
                     break;
             }
+
+
+            setZoomInAnimation(holder.itemView);
 //            if (leavedata.getStatus().equalsIgnoreCase("pending")) {
 //                holder.tvstatustask.setText("Pending");
 //                holder.tvstatustask.setBackgroundResource(R.drawable.border_button);
@@ -667,7 +688,10 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
 //            }
 
         }
-
+        private void setZoomInAnimation(View view) {
+            Animation zoomIn = AnimationUtils.loadAnimation(context, R.anim.fade_in);// animation file
+            view.startAnimation(zoomIn);
+        }
 
         @Override
         public int getItemCount() {
@@ -683,9 +707,10 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
 
             TextView tvNameDate;
             TextView tvstatustask;
-            TextView tvTitlecompnay;
+            TextView tvreason;
             TextView tvTitle;
-            TextView tvitldayscompnay;
+            TextView tvdays;
+            TextView tvdaysnumber;
             View itemView;
 
 
@@ -693,10 +718,11 @@ public class LeaveActivity extends AppCompatActivity implements View.OnClickList
                 super(itemView);
                 this.itemView = itemView;
                 tvNameDate = (TextView) itemView.findViewById(R.id.tvNameDate);
-                tvTitlecompnay = (TextView) itemView.findViewById(R.id.tvTitlecompnay);
+                tvreason = (TextView) itemView.findViewById(R.id.tvreason);
                 tvstatustask = (TextView) itemView.findViewById(R.id.tvstatustask);
                 tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-                tvitldayscompnay = (TextView) itemView.findViewById(R.id.tvitldayscompnay);
+                tvdaysnumber = (TextView) itemView.findViewById(R.id.tvitldayscompnay);
+                tvdays = (TextView) itemView.findViewById(R.id.tidays);
 
             }
         }

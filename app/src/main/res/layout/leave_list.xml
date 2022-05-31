@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/avleLeave"
+
         android:layout_marginRight="10dp"
         android:orientation="vertical">
 
@@ -46,7 +45,7 @@
                         android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/tvNameDate"
+                            android:id="@+id/tvTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proximanovabold"
@@ -65,7 +64,7 @@
                             android:background="@drawable/border"
                             android:fontFamily="@font/proximanovabold"
                             android:gravity="center"
-                            android:backgroundTint="#7ED321"
+                            android:backgroundTint="#ffffff"
                             android:padding="5dp"
                             android:text="Approved"
                             android:textSize="12dp" />
@@ -74,7 +73,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvTitle"
+                        android:id="@+id/tvNameDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="#F8F8F8"
@@ -86,7 +85,7 @@
                         android:textSize="12dp" />
 
                     <TextView
-                        android:id="@+id/tvTitlecompnay"
+                        android:id="@+id/tvreason"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -129,7 +128,7 @@
                             android:textSize="25dp"
                             />
                         <TextView
-                            android:id="@+id/ticompnay"
+                            android:id="@+id/tidays"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"

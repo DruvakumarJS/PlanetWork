@@ -196,7 +196,6 @@ public class GetLocation_Service extends Service {
             task.setIsreached("false");
         }
 
-
         if(pending_job_pref.getString("ot_started","0").equalsIgnoreCase("true"))
         {
             task.setStatus("3");
@@ -256,7 +255,6 @@ public class GetLocation_Service extends Service {
             db.taskDao().insert(task);
            // Log.w("TAG","Updating db");
         }*/
-
 
     }
 

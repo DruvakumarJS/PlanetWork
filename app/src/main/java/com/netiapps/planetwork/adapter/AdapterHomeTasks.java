@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class AdapterHomeTasks extends RecyclerView.Adapter<AdapterHomeTasks.View
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     private OnItemClickListener mListener;
+    private final static int FADE_DURATION = 1000;
 
     public AdapterHomeTasks(Context context, List<TasksDAO> myTasklist) {
         this.context=context;
@@ -110,6 +112,8 @@ public class AdapterHomeTasks extends RecyclerView.Adapter<AdapterHomeTasks.View
         holder.tvcount.setText(homeData.getNo_of_visit());
         holder.tvTaskName.setText(homeData.getTask());
         holder.tvSRnumber.setText("SR NO : "+homeData.getSr_no());
+
+        setFadeAnimation(holder.itemView);
 
        // String images = String.valueOf(homeData.getImages());
 
@@ -182,6 +186,7 @@ public class AdapterHomeTasks extends RecyclerView.Adapter<AdapterHomeTasks.View
 
                 if(!sharedPreferences.getString("session_loggedin","0").equalsIgnoreCase("1"))
                 {
+
                     Show_login_popup();
                     return;
                 }
@@ -283,6 +288,7 @@ public class AdapterHomeTasks extends RecyclerView.Adapter<AdapterHomeTasks.View
                     }
                 })*/
                 .show();
+
     }
 
 
@@ -324,5 +330,10 @@ public class AdapterHomeTasks extends RecyclerView.Adapter<AdapterHomeTasks.View
         }
 
 
+    }
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(FADE_DURATION);
+        view.startAnimation(anim);
     }
 }

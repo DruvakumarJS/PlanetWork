@@ -84,6 +84,7 @@ public class LoginTimeCounterService extends Service {
 
     private void startTimercount() {
 
+        Log.v("TAG","pased"+sharedPreferences.getBoolean("ispause",false));
         if(!sharedPreferences.getBoolean("ispause",false)) {
 
             count++;
@@ -100,6 +101,7 @@ public class LoginTimeCounterService extends Service {
             Log.i("DB", "Updated User Logout Data : "+loginID);
             mEditor.putString("DBloginID", "0");
 
+            mEditor.putString("timer_paused","false");
             mEditor.putString("session_loggedin","0");
             mEditor.putBoolean("session_end",true);
             mEditor.putInt("service_time",0);

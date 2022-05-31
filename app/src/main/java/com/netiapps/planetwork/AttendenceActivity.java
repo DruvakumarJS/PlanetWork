@@ -246,13 +246,28 @@ public class AttendenceActivity extends AppCompatActivity {
             JSONObject jsonObject=new JSONObject(result);
 
             String status=jsonObject.getString("status");
-                String total_hours = jsonObject.getString("total_hours");
-                String actual_hours = jsonObject.getString("actual_hours");
-                int ot_hours = Integer.parseInt(actual_hours)-Integer.parseInt(total_hours);
+                int total = Integer.parseInt(jsonObject.getString("total_hours"));
+                int actual = Integer.parseInt(jsonObject.getString("actual_hours"));
 
-                tiTotalhours.setText(total_hours + " hrs");
-                tiActulahours.setText(actual_hours + " hrs");
-                tiOvertime.setText(ot_hours + " hrs");
+                int ot_min=actual-total;
+                int NewString = Integer.parseInt(String.valueOf(ot_min).replaceAll("-", ""));
+
+                String formated_hr=((total/60)<10)?"0"+Integer.toString((total/60)):Integer.toString((total/60));
+                String formated_min=((total%60)<10)?"0"+Integer.toString((total%60)):Integer.toString((total%60));
+                String formated_ahr=((actual/60)<10)?"0"+Integer.toString((actual/60)):Integer.toString((actual/60));
+                String formated_amin=((actual%60)<10)?"0"+Integer.toString((actual%60)):Integer.toString((actual%60));
+                String formated_oth=((NewString/60)<10)?"0"+Integer.toString((NewString/60)):Integer.toString((NewString/60));
+                String formated_otmin=((NewString%60)<10)?"0"+Integer.toString((NewString%60)):Integer.toString((NewString%60));
+
+                tiTotalhours.setText(formated_hr+":"+formated_min);
+                tiActulahours.setText(formated_ahr +":"+formated_amin);
+                if(String.valueOf(ot_min).contains("-")) {
+                    tiOvertime.setText("-"+formated_oth + ":" + formated_otmin);
+                }
+                else {
+                    tiOvertime.setText(formated_oth + ":" + formated_otmin
+                    );
+                }
 
                 JSONArray jsonArray = jsonObject.getJSONArray("report");
                 for (int i = 0; i < jsonArray.length(); i++) {

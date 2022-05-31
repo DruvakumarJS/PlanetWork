@@ -74,6 +74,7 @@ public class LocalHelper {
                 PendingIntent.FLAG_ONE_SHOT);
         Uri sound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + context.getPackageName() + "/" + R.raw.nt);  //Here is FILE_NAME is the name of file that you want to play
 
+        Notification notification = new Notification();
         String channelId = context.getString(R.string.default_notification_channel_id);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder =
@@ -86,6 +87,7 @@ public class LocalHelper {
                         .setAutoCancel(true)
                         .setSound(sound, AudioManager.STREAM_NOTIFICATION)
                         .setContentIntent(pendingIntent);
+
 
         NotificationManager notificationManager = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {

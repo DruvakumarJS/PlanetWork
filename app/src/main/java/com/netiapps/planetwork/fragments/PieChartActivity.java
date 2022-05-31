@@ -51,19 +51,16 @@ public class PieChartActivity  extends Fragment implements View.OnClickListener 
     PieChart pieChart;
     SwipeRefreshLayout mSwipeRefreshLayout;
     JsonObject pieChartdata=new JsonObject();
-
     List<String> months=null;
     Spinner spinner;
     String date;
     RelativeLayout chartlayout;
-
     private TextView header;
     private CardView cardbackbtn;
     private CircleImageView cardivprofile;
     private  TextView tvfilter;
     SharedPreferences sharedPreferences;
     private LottieAnimationView anim_nodatfound,anim_loading;
-
 
     private String piechartdata="[\n" +
             "  {\n" +

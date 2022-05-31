@@ -84,4 +84,5 @@
     <color name="megenta">#2cb0bd</color>
     <color name="selector">#E0F0FF</color>
     <color name="status">#0C43CD</color>
+    <color name="shimmer_placeholder">#8FE2DBDB</color>
 </resources>

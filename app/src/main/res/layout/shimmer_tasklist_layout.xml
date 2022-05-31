@@ -1,0 +1,433 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardUseCompatPadding="true"
+            android:elevation="@dimen/_10sdp"
+            android:layout_weight="5"
+            android:layout_margin="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:layout_margin="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/rldatalayout"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/tvdate"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:background="@color/shimmer_placeholder"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tvPending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/shimmer_placeholder"
+                    android:fontFamily="@font/proximanovabold"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="3dp"
+
+
+                    android:textSize="7dp" />
+                <!--    android:text="Pending"
+                android:backgroundTint="#FFE9ED"
+                android:textColor="#FF8299"-->
+
+                <TextView
+                    android:id="@+id/tvTaskanme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvdate"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:padding="2dp"
+                    android:background="@color/shimmer_placeholder"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tvbrnchSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTaskanme"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="100dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:background="@color/shimmer_placeholder"
+                    android:gravity="left"
+                    android:padding="2dp"
+                    android:textColor="#272727"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tvsrnumber"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvbrnchSub"
+                    android:layout_marginTop="2dp"
+                    android:background="@color/shimmer_placeholder"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="left"
+                    android:padding="2dp"
+                    android:textColor="#1C1B1B"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
+                android:id="@+id/lllocation">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/llviewlocation"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/ivlocation"
+                        android:src="@drawable/ic_group_728" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="5dp"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/proximanovabold"
+                        android:background="@color/shimmer_placeholder"
+                        android:layout_toRightOf="@+id/ivlocation"
+
+                        android:textColor="#007FF6" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/shimmer_placeholder"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tvcount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="5dp"
+                        android:textColor="#151515"
+                        android:fontFamily="@font/proximanovabold"
+                        android:gravity="center"
+
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvvisit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvcount"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:text="visits"
+                        android:textColor="@color/shimmer_placeholder"
+                        android:textSize="8dp" />
+
+
+                </RelativeLayout>
+
+                <!-- <TextView
+                     android:id="@+id/tvvisit"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_alignParentBottom="true"
+                     android:text="Visits"
+                     android:fontFamily="@font/proximanovaregular"
+                     android:textSize="8dp" />
+
+                 <TextView
+                     android:id="@+id/tvcount"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_above="@+id/tvvisit"
+                     android:layout_alignParentEnd="true"
+                     android:layout_marginEnd="5dp"
+                     android:text="1"
+                     android:fontFamily="@font/proximanovabold"
+                     android:textStyle="bold"/>-->
+
+                <!--  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentBottom="true"
+                      android:layout_centerInParent="true"
+                      android:layout_marginBottom="2dp"
+                      android:fontFamily="@font/proximanovaregular"
+                      android:text="SR NO"
+                      android:textColor="#BC0808" />-->
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardUseCompatPadding="true"
+            android:elevation="@dimen/_10sdp"
+            android:layout_weight="5"
+            android:layout_margin="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/rldatalayout2"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/tvdate2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:background="@color/shimmer_placeholder"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tvPending2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/shimmer_placeholder"
+                    android:fontFamily="@font/proximanovabold"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="3dp"
+
+
+                    android:textSize="7dp" />
+                <!--    android:text="Pending"
+                android:backgroundTint="#FFE9ED"
+                android:textColor="#FF8299"-->
+
+                <TextView
+                    android:id="@+id/tvTaskanme2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvdate2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:padding="2dp"
+                    android:background="@color/shimmer_placeholder"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tvbrnchSub2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTaskanme2"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="100dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:background="@color/shimmer_placeholder"
+                    android:gravity="left"
+                    android:padding="2dp"
+                    android:textColor="#272727"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tvsrnumber2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvbrnchSub2"
+                    android:layout_marginTop="2dp"
+                    android:background="@color/shimmer_placeholder"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="left"
+                    android:padding="2dp"
+                    android:textColor="#1C1B1B"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
+                android:id="@+id/lllocation2">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/llviewlocation2"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/ivlocation2"
+                        android:src="@drawable/ic_group_728" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="5dp"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/proximanovabold"
+                        android:background="@color/shimmer_placeholder"
+                        android:layout_toRightOf="@+id/ivlocation"
+
+                        android:textColor="#007FF6" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/shimmer_placeholder"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tvcount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="5dp"
+                        android:textColor="#151515"
+                        android:fontFamily="@font/proximanovabold"
+                        android:gravity="center"
+
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvvisit2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvcount2"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:text="visits"
+                        android:textColor="@color/shimmer_placeholder"
+                        android:textSize="8dp" />
+
+
+                </RelativeLayout>
+
+                <!-- <TextView
+                     android:id="@+id/tvvisit"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_alignParentBottom="true"
+                     android:text="Visits"
+                     android:fontFamily="@font/proximanovaregular"
+                     android:textSize="8dp" />
+
+                 <TextView
+                     android:id="@+id/tvcount"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_above="@+id/tvvisit"
+                     android:layout_alignParentEnd="true"
+                     android:layout_marginEnd="5dp"
+                     android:text="1"
+                     android:fontFamily="@font/proximanovabold"
+                     android:textStyle="bold"/>-->
+
+                <!--  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentBottom="true"
+                      android:layout_centerInParent="true"
+                      android:layout_marginBottom="2dp"
+                      android:fontFamily="@font/proximanovaregular"
+                      android:text="SR NO"
+                      android:textColor="#BC0808" />-->
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+
+
+
+
+

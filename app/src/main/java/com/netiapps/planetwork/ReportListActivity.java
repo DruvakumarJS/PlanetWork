@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.DateValidatorPointBackward;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -78,6 +80,8 @@ public class ReportListActivity extends AppCompatActivity {
     private  String todayDate;
     SwipeRefreshLayout swipeRefreshLayout;
     SimpleDateFormat sdf;
+    String startingDay , endingDay;
+    private ShimmerFrameLayout mFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,13 +104,23 @@ public class ReportListActivity extends AppCompatActivity {
         cardfilterview=findViewById(R.id.filtercard);
         tvfilter=findViewById(R.id.tvfilter);
         swipeRefreshLayout=findViewById(R.id.swipelayout);
+        mFrameLayout = findViewById(R.id.shimmerLayout);
+        mFrameLayout.startShimmer();
 
         tvheader.setText("My Reports");
         ivfilter.setVisibility(View.VISIBLE);
 
         myreportListt = new ArrayList<>();
 
-        getTheReportFromServer(todayDate,todayDate);
+        startingDay=todayDate;
+        endingDay=startingDay;
+
+        mFrameLayout.startShimmer();
+        mFrameLayout.setVisibility(View.VISIBLE);
+
+        getTheReportFromServer(startingDay,endingDay);
+
+
 
         cardimgBcak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +133,7 @@ public class ReportListActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
 
-              //  getTheReportFromServer(todayDate,todayDate);
+               getTheReportFromServer(startingDay,endingDay);
             }
         });
 
@@ -142,6 +156,9 @@ public class ReportListActivity extends AppCompatActivity {
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         // tvfilter.setText(item.getTitle());
+                        recyclerView.setVisibility(View.GONE);
+                        mFrameLayout.startShimmer();
+                        mFrameLayout.setVisibility(View.VISIBLE);
 
                         if(item.getItemId()==R.id.dummy){
                             Toast.makeText(ReportListActivity.this,"You Clicked : " + tvfilter.getText().toString(), Toast.LENGTH_SHORT).show();
@@ -150,7 +167,9 @@ public class ReportListActivity extends AppCompatActivity {
                         {
                             tvfilter.setText(item.getTitle());
                             Log.v("TAG","today -->"+todayDate +","+todayDate);
-                            getTheReportFromServer(todayDate,todayDate);
+                            startingDay=todayDate;
+                            endingDay=startingDay;
+                            getTheReportFromServer(startingDay,endingDay);
 
                            // Toast.makeText(ReportListActivity.this,"You Clicked : " + tvfilter.getText().toString(), Toast.LENGTH_SHORT).show();
                         }
@@ -169,7 +188,10 @@ public class ReportListActivity extends AppCompatActivity {
 
                             Log.v("TAG","week -->"+previous_week +","+todayDate);
 
-                            getTheReportFromServer(previous_week,todayDate);
+                            startingDay=previous_week;
+                            endingDay=todayDate;
+                            getTheReportFromServer(startingDay,endingDay);
+                           // getTheReportFromServer(previous_week,todayDate);
                            // Toast.makeText(ReportListActivity.this,"You Clicked : " + tvfilter.getText().toString(), Toast.LENGTH_SHORT).show();
 
                         }
@@ -187,7 +209,10 @@ public class ReportListActivity extends AppCompatActivity {
                             String previous_month = sdf.format(cal.getTime());
 
                             Log.v("TAG","month -->"+previous_month +","+todayDate);
-                            getTheReportFromServer(previous_month,todayDate);
+                            startingDay=previous_month;
+                            endingDay=todayDate;
+                            getTheReportFromServer(startingDay,endingDay);
+                            //getTheReportFromServer(previous_month,todayDate);
                           //  Toast.makeText(ReportListActivity.this,"You Clicked : " + tvfilter.getText().toString(), Toast.LENGTH_SHORT).show();
                         }
                         else if(item.getItemId()==R.id.custome)
@@ -223,6 +248,7 @@ public class ReportListActivity extends AppCompatActivity {
 
         final MaterialDatePicker.Builder<Pair<Long, Long>> materialDatePickerBuilder = MaterialDatePicker.Builder.dateRangePicker();
         materialDatePickerBuilder.setTitleText("SELECT A DATE");
+        materialDatePickerBuilder.setTheme(R.style.Theme_Planetwork_DatePicker);
         materialDatePickerBuilder.setCalendarConstraints(calendarConstraintBuilder.build());
         final MaterialDatePicker<Pair<Long, Long>> materialDatePicker = materialDatePickerBuilder.build();
 
@@ -241,7 +267,11 @@ public class ReportListActivity extends AppCompatActivity {
                 Date date2 = new Date((Long) selection.second);
 
                 Log.v("TAG","custome range -->"+sdf.format(date1) +","+sdf.format(date2));
-                getTheReportFromServer(sdf.format(date1),sdf.format(date2));
+
+                startingDay=sdf.format(date1);
+                endingDay=sdf.format(date2);
+                getTheReportFromServer(startingDay,endingDay);
+               // getTheReportFromServer(sdf.format(date1),sdf.format(date2));
 
 
             }
@@ -255,6 +285,7 @@ public class ReportListActivity extends AppCompatActivity {
 
         final MaterialDatePicker.Builder<Long> materialDatePickerBuilder = MaterialDatePicker.Builder.datePicker();
         materialDatePickerBuilder.setTitleText("SELECT A DATE");
+        materialDatePickerBuilder.setTheme(R.style.Theme_Planetwork_DatePicker);
         materialDatePickerBuilder.setCalendarConstraints(calendarConstraintBuilder.build());
         final MaterialDatePicker<Long> materialDatePicker = materialDatePickerBuilder.build();
 
@@ -278,7 +309,11 @@ public class ReportListActivity extends AppCompatActivity {
                         Date date = new Date((Long) selection);
 
                        // tvfilter.setText(simpleFormat.format(date));
-                       getTheReportFromServer(sdf.format(date),sdf.format(date));
+
+                        startingDay=sdf.format(date);
+                        endingDay=sdf.format(date);
+                        getTheReportFromServer(startingDay,endingDay);
+                     //  getTheReportFromServer(sdf.format(date),sdf.format(date));
 
                         Log.v("TAG","custome day -->"+sdf.format(date) +","+sdf.format(date));
                     }
@@ -289,7 +324,8 @@ public class ReportListActivity extends AppCompatActivity {
     private void getTheReportFromServer(String startday,String enddate) {
 
         if(LocalHelper.isConnectedToInternet(ReportListActivity.this)) {
-            animloading.setVisibility(View.VISIBLE);
+            ivNodatafound.setVisibility(View.GONE);
+
 
             final JSONObject jsonObject = new JSONObject();
             try {
@@ -320,8 +356,10 @@ public class ReportListActivity extends AppCompatActivity {
                             parseTheJSONAndDisplayTheResults(response);
                         } else if (status == 0) {
                             String message = "No Leave Found";
+
                             ivNodatafound.setVisibility(View.VISIBLE);
-                            animloading.setVisibility(View.GONE);
+                            mFrameLayout.stopShimmer();
+                            mFrameLayout.setVisibility(View.GONE);
                             swipeRefreshLayout.setRefreshing(false);
 
                         }
@@ -336,9 +374,7 @@ public class ReportListActivity extends AppCompatActivity {
                     // progressDialog.dismiss();
                     if (error instanceof TimeoutError || error instanceof NoConnectionError) {
                         //  AlertDialogShow.showSimpleAlert("No Connectivity", "Please check your connectivity and try again", getSupportFragmentManager());
-
                         ivNodatafound.setVisibility(View.VISIBLE);
-                        animloading.setVisibility(View.GONE);
                         swipeRefreshLayout.setRefreshing(false);
                         return;
                     }
@@ -375,7 +411,9 @@ public class ReportListActivity extends AppCompatActivity {
             ivNodatafound.setVisibility(View.VISIBLE);
             animloading.setVisibility(View.GONE);
             swipeRefreshLayout.setRefreshing(false);
-           // Toast.makeText(ReportListActivity.this,"No Connection Availabale",Toast.LENGTH_SHORT).show();
+            mFrameLayout.stopShimmer();
+            mFrameLayout.setVisibility(View.GONE);
+            Toast.makeText(ReportListActivity.this,"No Connection Availabale",Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -412,19 +450,27 @@ public class ReportListActivity extends AppCompatActivity {
         }
 
         if (myreportListt.size() > 0) {
-            travelHistorylist = new AdapterTravelHistory(ReportListActivity.this, myreportListt);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-            recyclerView.setAdapter(travelHistorylist);
-            recyclerView.setVisibility(View.VISIBLE);
-            animloading.setVisibility(View.GONE);
-            ivNodatafound.setVisibility(View.GONE);
-            swipeRefreshLayout.setRefreshing(false);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    travelHistorylist = new AdapterTravelHistory(ReportListActivity.this, myreportListt);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    recyclerView.setAdapter(travelHistorylist);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    ivNodatafound.setVisibility(View.GONE);
+                    mFrameLayout.stopShimmer();
+                    mFrameLayout.setVisibility(View.GONE);
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            },2000);
+
 
         } else {
             ivNodatafound.setVisibility(View.VISIBLE);
-            animloading.setVisibility(View.GONE);
             swipeRefreshLayout.setRefreshing(false);
+            mFrameLayout.stopShimmer();
+            mFrameLayout.setVisibility(View.GONE);
            // Toast.makeText(ReportListActivity.this, "NO Report Found", Toast.LENGTH_SHORT).show();
         }
 

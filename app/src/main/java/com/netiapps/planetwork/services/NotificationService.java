@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
-import com.ankushgrover.hourglass.Hourglass;
 import com.netiapps.planetwork.DashBoardActivity;
 import com.netiapps.planetwork.R;
 import com.netiapps.planetwork.utils.Constants;

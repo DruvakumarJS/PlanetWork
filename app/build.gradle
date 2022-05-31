@@ -15,8 +15,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
-        versionName "Staging APK V.1.1"
-       // versionName "Version1.1"
+        versionName "Staging_v1.1.1"
+        //versionName "Version_1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -114,7 +114,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.11.0"
     annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
 
-    implementation 'com.ankushgrover:Hourglass:2.0.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
  /*   implementation "com.ncorti:slidetoact:0.9.0"
     implementation 'com.github.Jay-Goo:RangeSeekBar:v3.0.0'*/

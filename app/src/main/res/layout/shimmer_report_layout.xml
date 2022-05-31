@@ -1,0 +1,80 @@
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
+    app:cardUseCompatPadding="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+
+    android:padding="20dp">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rl1">
+
+
+   <TextView
+       android:layout_width="100dp"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:background="@drawable/shape_rounded"
+       android:backgroundTint="@color/shimmer_placeholder"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rounded"
+        android:backgroundTint="@color/shimmer_placeholder"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/shape_rounded"
+        android:backgroundTint="@color/shimmer_placeholder"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rl1"
+        android:id="@+id/t1"
+        android:layout_marginTop="10dp"
+        android:background="@color/shimmer_placeholder"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t1"
+        android:id="@+id/t2"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/shimmer_placeholder"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t2"
+        android:id="@+id/t3"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/shimmer_placeholder"/>
+
+</RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

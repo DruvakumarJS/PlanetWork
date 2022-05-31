@@ -35,6 +35,7 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.netiapps.planetwork.R;
 import com.netiapps.planetwork.adapter.AdapterMyTasks;
 import com.netiapps.planetwork.model.Home;
@@ -69,8 +70,7 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
 
     SwipeRefreshLayout mSwipeRefreshLayout;
     private LottieAnimationView anim_nodatfound,anim_loading;
-
-
+    private ShimmerFrameLayout shimmerFrameLayout;
     RecyclerView rvmytasklist;
     public TaskFragment() {
 
@@ -103,6 +103,9 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
         ivfilter=view.findViewById(R.id.ivcircleimg);
         anim_nodatfound=view.findViewById(R.id.ivnodatafound);
         anim_loading=view.findViewById(R.id.loading);
+        shimmerFrameLayout=view.findViewById(R.id.shimmerLayout);
+
+        shimmerFrameLayout.startShimmer();
 
         //Picasso.get().load(R.drawable.ic_arrow).into(ivfilter);
        // ivfilter.setVisibility(View.VISIBLE);
@@ -113,6 +116,8 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
             public void onRefresh() {
                 myTasklist.clear();
               //  anim_loading.setVisibility(View.VISIBLE);
+                shimmerFrameLayout.startShimmer();
+                shimmerFrameLayout.setVisibility(View.VISIBLE);
                 if(LocalHelper.isConnectedToInternet(getActivity())) {
                     Handler handler=new Handler();
                     handler.postDelayed(new Runnable() {
@@ -120,14 +125,16 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
                         public void run() {
                             getAllTaskDataFromServer();
                         }
-                    },2000);
+                    },3000);
 
                 }
                 else {
                     anim_loading.setVisibility(View.GONE);
                     anim_nodatfound.setVisibility(View.VISIBLE);
                     mSwipeRefreshLayout.setRefreshing(false);
-                  //  Toast.makeText(getActivity(),"No Connection available",Toast.LENGTH_SHORT).show();
+                    shimmerFrameLayout.stopShimmer();
+                    shimmerFrameLayout.setVisibility(View.GONE);
+                    Toast.makeText(getActivity(),"No Connection available",Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -151,13 +158,14 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
               public void run() {
                   getAllTaskDataFromServer();
               }
-          },2000);
+          },3000);
 
       }
       else {
-          anim_loading.setVisibility(View.GONE);       anim_nodatfound.setVisibility(View.VISIBLE);
-          mSwipeRefreshLayout.setRefreshing(false);
-       //   Toast.makeText(getActivity(),"No Connection available",Toast.LENGTH_SHORT).show();
+         /* anim_loading.setVisibility(View.GONE);
+          anim_nodatfound.setVisibility(View.VISIBLE);
+          mSwipeRefreshLayout.setRefreshing(false);*/
+          Toast.makeText(getActivity(),"No Connection available",Toast.LENGTH_SHORT).show();
 
       }
 
@@ -306,6 +314,8 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
             rvmytasklist.setHasFixedSize(true);
             rvmytasklist.setLayoutManager(new GridLayoutManager(getActivity(), 2));
             rvmytasklist.setAdapter(adapterMyTasks);
+            shimmerFrameLayout.setVisibility(View.GONE);
+            shimmerFrameLayout.stopShimmer();
             rvmytasklist.setVisibility(View.VISIBLE);
             anim_loading.setVisibility(View.GONE);
             anim_nodatfound.setVisibility(View.GONE);

@@ -269,9 +269,12 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
 
         toMap();
         toRoute();
-        ll_mapaddress.setVisibility(View.GONE);
+    //    ll_mapaddress.setVisibility(View.GONE);
         ll_addressVerificationContent.setVisibility(View.GONE);
         ll_routeaddress.setVisibility(View.GONE);
+
+
+
 
         tvidellocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -305,7 +308,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
     private void toMap() {
 
         if (ll_mapaddress.getVisibility() == View.VISIBLE) {
-            ll_mapaddress.setVisibility(View.GONE);
+           // ll_mapaddress.setVisibility(View.GONE);
             img_maprightt.setImageResource(R.drawable.ic_right);
         } else {
             ll_mapaddress.setVisibility(View.VISIBLE);
@@ -826,6 +829,10 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                    anim_loading.setVisibility(View.GONE);
                    anim_nodatafound.setVisibility(View.GONE);
                    //swipeRefreshLayout.setRefreshing(false);
+
+                   if(mMap != null){
+                       mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngList.get(0),15.0F));
+                   }
 
                } else {
                    anim_loading.setVisibility(View.GONE);

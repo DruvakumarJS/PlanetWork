@@ -24,4 +24,8 @@
     <style name="Theme.PlanetWork.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.PlanetWork.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.Planetwork.DatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">?colorAccent</item> // this is the key, we need to use a dark color instead of our theme's primary color
+    </style>
 </resources>

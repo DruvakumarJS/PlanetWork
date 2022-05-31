@@ -10,6 +10,7 @@
         android:id="@+id/headerlayout"
         layout="@layout/back_arrow_with_header_layout" />
 
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,6 +21,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/shimmerLayout">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <include layout="@layout/shimmer_tasklist_layout"/>
+                <include layout="@layout/shimmer_tasklist_layout"/>
+                    <include layout="@layout/shimmer_tasklist_layout"/>
+                    <include layout="@layout/shimmer_tasklist_layout"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvtasklisk"
                 android:layout_width="wrap_content"
@@ -27,6 +44,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:layout_marginRight="15dp">
 
             </androidx.recyclerview.widget.RecyclerView>

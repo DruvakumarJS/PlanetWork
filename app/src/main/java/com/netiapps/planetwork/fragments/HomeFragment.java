@@ -172,7 +172,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         sharedPreferences = (SharedPreferences) getActivity().getSharedPreferences(Constants.sharedPreferencesKey, MODE_PRIVATE);
         mEditor = sharedPreferences.edit();
         mEditor.putBoolean(Constants.REVERSE_FIRST_TIME, true);
-      //  mEditor.putBoolean("workinprogress",false);
+       // mEditor.putString("timer_paused","false");
         mEditor.apply();
 
         userName = sharedPreferences.getString(Constants.userNameKey, "");
@@ -201,6 +201,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         ivHamMenu.setOnClickListener(this);
         imgPriofile.setOnClickListener(this);
+
+        anim_loading.setVisibility(View.VISIBLE);
 
        /* List<DbModelSendingData> locationData = getAllData();
         if(locationData.size() > 0) {
@@ -260,7 +262,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    getTheHomeDetailsFromServer();
+                   // getTheHomeDetailsFromServer();
                 }
             },2000);
 
@@ -362,6 +364,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
                 }
                 else {
+                    myHomeListt.clear();
                     mSwipeRefreshLayout.setRefreshing(false);
                     anim_loading.setVisibility(View.GONE);
                     anim_nodatfound.setVisibility(View.VISIBLE);
@@ -965,8 +968,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onResume() {
         super.onResume();
-      // Log.i("TAG","On Resume Called");
+       //Log.i("TAG","On Resume Called");
       //  getActivity().registerReceiver(broadcastReceiver, new IntentFilter("updatetext"));
+        anim_loading.setVisibility(View.VISIBLE);
         if(myHomeListt!=null)
         {
             myHomeListt.clear();
@@ -979,7 +983,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         else {
             mSwipeRefreshLayout.setRefreshing(false);
             anim_loading.setVisibility(View.GONE);
-            anim_nodatfound.setVisibility(View.VISIBLE);
+           // anim_nodatfound.setVisibility(View.VISIBLE);
+            Toast.makeText(getActivity(),"No Connection availbale",Toast.LENGTH_SHORT).show();
 
         }
     }

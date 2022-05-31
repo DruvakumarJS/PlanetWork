@@ -26,6 +26,7 @@ import androidx.core.app.NotificationCompat;
 import com.netiapps.planetwork.DashBoardActivity;
 import com.netiapps.planetwork.MainActivity;
 import com.netiapps.planetwork.R;
+import com.netiapps.planetwork.database.AppDatabase;
 import com.netiapps.planetwork.utils.ConnectionHelper;
 import com.netiapps.planetwork.utils.LocalHelper;
 
@@ -96,6 +97,12 @@ public class GPSstatusService extends Service {
                           mEditor.putString("broadcast_logout_time", current_time);
                           mEditor.putString("timer_paused", "true");
                           mEditor.apply();
+
+                          String time =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+
+                          String loginID=sharedPreferences.getString("DBloginID","");
+                          AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
+                          db.logintaskDao().update(time,loginID);
 
                           String tittle=getApplicationContext().getString(R.string.logout) ;
                           String message=getApplicationContext().getString(R.string.location_disabled) ;

@@ -1,11 +1,12 @@
 package com.netiapps.planetwork.utils;
 
-public class Constants {
+import com.netiapps.planetwork.BuildConfig;
 
+public class Constants {
 
     public static final String BASE_URL = "http://app-staging.planetwork.in/";  // staging
 
-  //  public static final String BASE_URL = "http://app.planetwork.in/";  //Live
+   //public static final String BASE_URL = "http://app.planetwork.in/";  //Live
 
     public static final String API = "api/";
 

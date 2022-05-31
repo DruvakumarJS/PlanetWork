@@ -17,7 +17,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_show_map_view.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_update_task_details.xml" value="0.19076923076923077" />
+        <entry key="app/src/main/res/layout/alertdialogleave.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/alertdilaog.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/apply_leave_bottom_sheet_layout.xml" value="0.9" />
         <entry key="app/src/main/res/layout/attendence_item_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/back_arrow_with_header_layout.xml" value="0.17314814814814813" />
         <entry key="app/src/main/res/layout/bottom_sheet_layout.xml" value="0.19074074074074074" />
@@ -30,12 +32,16 @@
         <entry key="app/src/main/res/layout/home_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/idelelistview.xml" value="0.1685185185185185" />
         <entry key="app/src/main/res/layout/leave.xml" value="0.17314814814814813" />
-        <entry key="app/src/main/res/layout/leave_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/leave_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/navigation_header.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/piechart.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/reportlist.xml" value="0.17314814814814813" />
         <entry key="app/src/main/res/layout/reportsinglelist.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/shimmer_report_layout.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/shimmer_tasklist_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/splash_screen.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/statusactivyty.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/task_fragment_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/task_list.xml" value="0.19375" />
         <entry key="app/src/main/res/menu/active_status_menu.xml" value="0.19375" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1537037037037037" />
