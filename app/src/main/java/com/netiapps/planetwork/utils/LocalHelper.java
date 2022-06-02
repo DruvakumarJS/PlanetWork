@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
+import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -83,9 +84,8 @@ public class LocalHelper {
                         .setContentTitle(tittle)
                         .setContentText(message)
                         .setContentIntent(pendingIntent)
-
                         .setAutoCancel(true)
-                        .setSound(sound, AudioManager.STREAM_NOTIFICATION)
+                        .setSound(null)
                         .setContentIntent(pendingIntent);
 
 
@@ -102,7 +102,6 @@ public class LocalHelper {
         // Since android Oreo notification channel is needed.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            if(sound != null){
                 // Changing Default mode of notification
                 notificationBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
 
@@ -116,7 +115,7 @@ public class LocalHelper {
                 NotificationChannel notificationChannel = new NotificationChannel(channelId,"pp",NotificationManager.IMPORTANCE_HIGH);
                 notificationChannel.setSound(sound,audioAttributes);
                 notificationManager.createNotificationChannel(notificationChannel);
-            }
+
 
             Random r = new Random();
             int randomNumber = r.nextInt(10);
@@ -128,51 +127,11 @@ public class LocalHelper {
 
         }
 
-
-
-        /*Intent intent = new Intent(context, DashBoardActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 *//* Request code *//*, intent,
-                PendingIntent.FLAG_ONE_SHOT);
-
-        String channelId = context.getString(R.string.default_notification_channel_id);
-        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder notificationBuilder =
-                new NotificationCompat.Builder(context, channelId)
-                        .setSmallIcon(R.drawable.appicon)
-                        .setContentTitle(tittle)
-                        .setContentText(message)
-                        .setContentIntent(pendingIntent)
-                        .setAutoCancel(true)
-                        .setSound(defaultSoundUri)
-                        .setContentIntent(pendingIntent);
-
-        NotificationManager notificationManager = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        }
-        else {
-            notificationManager=
-                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        }
-
-        // Since android Oreo notification channel is needed.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(channelId,
-                    "Vidwath App",
-                    NotificationManager.IMPORTANCE_DEFAULT);
-            notificationManager.createNotificationChannel(channel);
-            Random r = new Random();
-            int randomNumber = r.nextInt(10);
-            notificationManager.notify(randomNumber *//* ID of notification *//*, notificationBuilder.build());
-
-        }
-         else {
-             notificationManager.notify(0 *//* ID of notification *//*, notificationBuilder.build());
-
-        }*/
+        playNotificationSound(context);
 
     }
+
+
 
     public static void showbottomsheet(Context context, String message){
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context );
@@ -217,7 +176,7 @@ public class LocalHelper {
                         .setContentText(message)
                         .setContentIntent(pendingIntent)
                         .setAutoCancel(true)
-                        .setSound(defaultSoundUri)
+                        .setSound(null)
                         .setContentIntent(pendingIntent);
 
         NotificationManager notificationManager = null;
@@ -244,6 +203,7 @@ public class LocalHelper {
             notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
 
         }
+        playNotificationSound(context);
 
     }
 
@@ -303,6 +263,16 @@ public class LocalHelper {
             }
         });
 
+    }
+    public static void playNotificationSound(Context context) {
+        try {
+            Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
+                    + "://" + context.getPackageName() + "/"+R.raw.nt);
+            Ringtone r = RingtoneManager.getRingtone(context, alarmSound);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

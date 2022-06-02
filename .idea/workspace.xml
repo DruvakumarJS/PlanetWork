@@ -6,71 +6,34 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3f7e836-f521-4c2d-96a5-22d0040ff7b9" name="Default Changelist" comment="*Run service to monitor login time &#10;*Logout automatically after completing daily working hour &#10;*Restrict lat lang data insertion if logout&#10;*Store all login- logout details in LOCAL DB , every 5 min sync to remote server.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/zoomin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/apply_leave_bottom_sheet_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/shimmer_report_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/shimmer_tasklist_layout.xml" afterDir="false" />
+    <list default="true" id="b3f7e836-f521-4c2d-96a5-22d0040ff7b9" name="Default Changelist" comment="*Shimmer effect while loading from API&#10;*attendance mmodule and Report section errror corrrection&#10;*Leave Module UI / display format modification">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/AttendenceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/AttendenceActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/LeaveActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/LeaveActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/ReportActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/ReportActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/ReportListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/ReportListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/adapter/AdapterHomeTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/adapter/AdapterHomeTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/adapter/AdapterTravelHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/adapter/AdapterTravelHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/broadcast/SendLocationToServerBroadcastReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/broadcast/SendLocationToServerBroadcastReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/NotificationFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/NotificationFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/PieChartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/PieChartActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/TaskFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/fragments/TaskFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/TaskDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/TaskDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/locationbackground/GetLocation_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/locationbackground/GetLocation_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/rough/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/rough/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/GPSstatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/GPSstatusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/LoginTimeCounterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/LoginTimeCounterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/utils/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/utils/LocalHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/utils/LocalHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_attendence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_attendence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/expandablelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/expandablelist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/leave.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/leave.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/leave_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/leave_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/reportlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/reportlist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/reportsinglelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/reportsinglelist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/task_fragment_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/task_fragment_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[38069d50]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/home/netiapps/.android/avd/Android_11.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -124,6 +87,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="staging1.1" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -146,7 +122,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DEBUGGABLE_DEVICE" value="xiaomi-2201117ti-adb-38069d50-uCKU7k._adb-tls-connect._tcp" />
+    <property name="DEBUGGABLE_DEVICE" value="xiaomi-2201117ti-38069d50" />
     <property name="DEBUGGABLE_PROCESS" value="com.netiapps.planetwork" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -404,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653310197064</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="*Shimmer effect while loading from API&#10;*attendance mmodule and Report section errror corrrection&#10;*Leave Module UI / display format modification">
+      <created>1653983644639</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653983644639</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,16 +412,12 @@
     <MESSAGE value="*PlanetWork Staging first commit" />
     <MESSAGE value="*PlanetWork Staging version 1.0" />
     <MESSAGE value="*Run service to monitor login time &#10;*Logout automatically after completing daily working hour &#10;*Restrict lat lang data insertion if logout&#10;*Store all login- logout details in LOCAL DB , every 5 min sync to remote server." />
-    <option name="LAST_COMMIT_MESSAGE" value="*Run service to monitor login time &#10;*Logout automatically after completing daily working hour &#10;*Restrict lat lang data insertion if logout&#10;*Store all login- logout details in LOCAL DB , every 5 min sync to remote server." />
+    <MESSAGE value="*Shimmer effect while loading from API&#10;*attendance mmodule and Report section errror corrrection&#10;*Leave Module UI / display format modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Shimmer effect while loading from API&#10;*attendance mmodule and Report section errror corrrection&#10;*Leave Module UI / display format modification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/ReportActivity.java</url>
-          <line>364</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/UpdateTaskDetailsActivity.java</url>
           <line>204</line>
@@ -451,12 +430,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/TaskDetails.java</url>
-          <line>1397</line>
+          <line>1398</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/TaskDetails.java</url>
-          <line>1415</line>
+          <line>1416</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -475,19 +454,9 @@
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/broadcast/SendLocationToServerBroadcastReceiver.java</url>
-          <line>248</line>
-          <option name="timeStamp" value="199" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/services/GPSstatusService.java</url>
           <line>102</line>
           <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/netiapps/planetwork/ReportActivity.java</url>
-          <line>832</line>
-          <option name="timeStamp" value="204" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

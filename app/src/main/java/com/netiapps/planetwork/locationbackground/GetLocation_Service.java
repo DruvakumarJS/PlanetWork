@@ -30,6 +30,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.SphericalUtil;
 import com.netiapps.planetwork.DashBoardActivity;
 import com.netiapps.planetwork.R;
 import com.netiapps.planetwork.database.AppDatabase;
@@ -212,8 +213,6 @@ public class GetLocation_Service extends Service {
             task.setStatus("0");
         }
 
-        //Log.i("DB","session login is "+pending_job_pref.getString("session_loggedin","0"));
-
         if(pending_job_pref.getString("session_loggedin","0").equalsIgnoreCase("1")
                 && pending_job_pref.getString("timer_paused","0").equalsIgnoreCase("false")) {
             AppDatabase db = AppDatabase.getDbInstance(context);
@@ -224,37 +223,6 @@ public class GetLocation_Service extends Service {
             //  Log.i("DB","job id "+pending_job_pref.getString("job_id","0"));
         }
 
-       /* DbModelSendingData task = new DbModelSendingData();
-        task.setUserempId(pending_job_pref.getString(com.netiapps.planetwork.utils.Constants.userIdKey, ""));
-        task.setLat(String.valueOf(lat));
-        task.setLng(String.valueOf(lng));
-        task.setDate(getDateWithFormat(Calendar.getInstance().getTimeInMillis(), true));
-        task.setTime(getDateWithFormat(Calendar.getInstance().getTimeInMillis(), false));
-
-
-        if(pending_job_pref.getString("ot_started","0").equalsIgnoreCase("true"))
-        {
-            task.setStatus("3");
-        }
-        else if(pending_job_pref.getString("session_loggedin","0").equalsIgnoreCase("1")&&pending_job_pref.getString("timer_paused","false").equalsIgnoreCase("true")){
-            task.setStatus("2");
-        }
-        else if(pending_job_pref.getString("session_loggedin","0").equalsIgnoreCase("1"))
-        {
-            task.setStatus("1");
-        }
-
-
-        else {
-            task.setStatus("0");
-        }
-
-        if(pending_job_pref.getString("session_loggedin","0").equalsIgnoreCase("1")
-        && pending_job_pref.getString("timer_paused","0").equalsIgnoreCase("false")) {
-            AppDatabase db = AppDatabase.getDbInstance(context);
-            db.taskDao().insert(task);
-           // Log.w("TAG","Updating db");
-        }*/
 
     }
 
@@ -350,6 +318,18 @@ public class GetLocation_Service extends Service {
         return formattedDateOrTime;
 
 
+    }
+    public static float distFrom(float lat1, float lng1, float lat2, float lng2) {
+        double earthRadius = 6371000; //meters
+        double dLat = Math.toRadians(lat2-lat1);
+        double dLng = Math.toRadians(lng2-lng1);
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                        Math.sin(dLng/2) * Math.sin(dLng/2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        float dist = (float) (earthRadius * c);
+
+        return dist;
     }
 
 }

@@ -197,7 +197,6 @@ public class TaskDetails extends AppCompatActivity implements View.OnClickListen
         userId = sharedPreferences.getString(Constants.userIdKey, "");
 
 
-
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
